@@ -18,10 +18,11 @@ public class UserAccountSettings implements Parcelable{
     private String username;
     private String website;
     private String user_id;
+    private int points;
 
     public UserAccountSettings(String description, String display_name, long followers,
                                long following, long posts, String profile_photo, String username,
-                               String website, String user_id) {
+                               String website, String user_id, int points) {
         this.description = description;
         this.display_name = display_name;
         this.followers = followers;
@@ -31,6 +32,7 @@ public class UserAccountSettings implements Parcelable{
         this.username = username;
         this.website = website;
         this.user_id = user_id;
+        this.points = points;
     }
 
     public UserAccountSettings() {
@@ -47,6 +49,7 @@ public class UserAccountSettings implements Parcelable{
         username = in.readString();
         website = in.readString();
         user_id = in.readString();
+        points = in.readInt();
     }
 
     public static final Creator<UserAccountSettings> CREATOR = new Creator<UserAccountSettings>() {
@@ -133,6 +136,7 @@ public class UserAccountSettings implements Parcelable{
         this.website = website;
     }
 
+    public int getPoints(){return points;}
 
     @Override
     public String toString() {
@@ -145,6 +149,7 @@ public class UserAccountSettings implements Parcelable{
                 ", profile_photo='" + profile_photo + '\'' +
                 ", username='" + username + '\'' +
                 ", website='" + website + '\'' +
+                ", points='" + points + '\'' +
                 '}';
     }
 
@@ -164,5 +169,6 @@ public class UserAccountSettings implements Parcelable{
         dest.writeString(username);
         dest.writeString(website);
         dest.writeString(user_id);
+        dest.writeInt(points);
     }
 }
