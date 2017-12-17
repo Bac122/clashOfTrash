@@ -126,7 +126,7 @@ public class HomeActivity extends AppCompatActivity implements
      */
     private void setupViewPager(){
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new CameraFragment()); //index 0
+        adapter.addFragment(new LeaderBoardFragment()); //index 0
         adapter.addFragment(new HomeFragment()); //index 1
         adapter.addFragment(new MessagesFragment()); //index 2
         mViewPager.setAdapter(adapter);
@@ -134,9 +134,9 @@ public class HomeActivity extends AppCompatActivity implements
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_camera);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_instagram_black);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_arrow);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_global);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_trash);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_paper);
     }
 
     /**

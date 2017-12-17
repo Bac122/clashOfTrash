@@ -18,11 +18,11 @@ public class UserAccountSettings implements Parcelable{
     private String username;
     private String website;
     private String user_id;
-    private int points;
+    private int totalPoints;
 
     public UserAccountSettings(String description, String display_name, long followers,
                                long following, long posts, String profile_photo, String username,
-                               String website, String user_id, int points) {
+                               String website, String user_id, int totalPoints) {
         this.description = description;
         this.display_name = display_name;
         this.followers = followers;
@@ -32,7 +32,7 @@ public class UserAccountSettings implements Parcelable{
         this.username = username;
         this.website = website;
         this.user_id = user_id;
-        this.points = points;
+        this.totalPoints = totalPoints;
     }
 
     public UserAccountSettings() {
@@ -49,7 +49,7 @@ public class UserAccountSettings implements Parcelable{
         username = in.readString();
         website = in.readString();
         user_id = in.readString();
-        points = in.readInt();
+        totalPoints = in.readInt();
     }
 
     public static final Creator<UserAccountSettings> CREATOR = new Creator<UserAccountSettings>() {
@@ -136,7 +136,7 @@ public class UserAccountSettings implements Parcelable{
         this.website = website;
     }
 
-    public int getPoints(){return points;}
+    public int getTotalPoints(){return totalPoints;}
 
     @Override
     public String toString() {
@@ -149,7 +149,7 @@ public class UserAccountSettings implements Parcelable{
                 ", profile_photo='" + profile_photo + '\'' +
                 ", username='" + username + '\'' +
                 ", website='" + website + '\'' +
-                ", points='" + points + '\'' +
+                ", totalPoints='" + totalPoints + '\'' +
                 '}';
     }
 
@@ -169,6 +169,6 @@ public class UserAccountSettings implements Parcelable{
         dest.writeString(username);
         dest.writeString(website);
         dest.writeString(user_id);
-        dest.writeInt(points);
+        dest.writeInt(totalPoints);
     }
 }
